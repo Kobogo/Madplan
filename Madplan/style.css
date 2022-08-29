@@ -64,3 +64,101 @@ button {
   height: 4rem;
   width: 6rem;
 }
+
+
+/* ======================== The pop up menu =========================================*/
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  border: 1px solid var(--dark-text-color);
+  border-radius: 10px;
+  z-index: 10;
+  background-color: var(--light-text-color);
+  color: var(--dark-text-color);
+  width: 500px;
+  max-width: 80%;
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #333;
+  background-color: var(--dark-text-color);
+  color: var(--light-text-color);
+  border-radius: 10px;
+}
+
+.modal-header .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-header .title-text {
+  width: 80%;
+  border: none;
+}
+
+.modal-header .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-body {
+  padding: 10px 15px;
+}
+.modal-body .description {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+.modal-body .description-textarea {
+  width: 100%;
+}
+
+.modal-body .create-button {
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  background-color: var(--green-color);
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-body .create-button:hover {
+  cursor: pointer;
+  border: none;
+  color: var(--green-color);
+  background-color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.overlay {
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  transition: 200ms ease-in-out;
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}

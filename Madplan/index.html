@@ -8,9 +8,7 @@
     <title>Madplan</title>
 </head>
 <body>
-
-    
-    
+        
     <div class="container">
         <div class="menu">
             <header>
@@ -49,10 +47,25 @@
 
             <div class="btn">
                 <button id="btn">Se retter</button>
-                <button class="submit">Ny ret</button>
+                <button data-modal-target="#modal" class="submit-button">Ny ret</button>
             </div>
         </div>
-
+       
+            <!--MODAL-->
+            <div class="modal" id="modal">
+              <div class="modal-header">
+                <div class="title">Ret</div>
+                <input type="text" name="Title" class="title-text" />
+                <button data-close-button class="close-button">&times;</button>
+              </div>
+              <div class="modal-body">
+                <div class="description">ingredienser</div>
+                ¨
+                <textarea class="description-textarea" rows="10"></textarea>
+                <button class="create-button" type="submit">Submit</button>
+              </div>
+            </div>
+            <div class="overlay"></div>
             <!--div class="mad">
             <h2>Mad</h2>
             </div> -->
