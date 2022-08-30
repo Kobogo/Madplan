@@ -119,12 +119,28 @@ button {
 .modal-body {
   padding: 10px 15px;
 }
-.modal-body .description {
+.modal-body .ingredienser {
   font-size: 1.25rem;
   font-weight: bold;
+  padding-bottom: 10px;
 }
-.modal-body .description-textarea {
+.modal-body .ingredienser-textarea {
   width: 100%;
+  border-radius: 10px;
+}
+
+.title{
+  padding: 10px;
+}
+
+.title-text{
+  margin:  auto;
+  height: 1rem;
+  border-radius: 5px;
+}
+
+.close-button{
+  color: var(--light-text-color);
 }
 
 .modal-body .create-button {

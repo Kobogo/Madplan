@@ -7,11 +7,10 @@
   const lørdag = document.querySelector('.lørdag')
   const søndag = document.querySelector('.søndag')
   const indkøb = document.querySelector('.indkøb')
-  let btn = document.getElementById('#btn')
+  const seRetter = document.querySelector('.se-retter').addEventListener('click', getRandom)
 
-  btn = document.addEventListener('click', generateMenu) 
-
-  let mad = [
+  
+let mad = [
     {
       ret: "Hot dogs", 
       ingredienser: ["Pølser", "Brød"]
@@ -41,30 +40,34 @@
       ingredienser: ["Indbagt laks", "Skivkartofler", "Fløde", "Løg"]
     }
   ];
+  
 
-
+//Shuffle the data from mad[]
 function setRandom(){
   const random = mad[Math.floor(Math.random() * mad.length)]
   return random
 }
 
+// get the shuffled data from setRandom()
 function getRandom(){
  
   let setNewRandom = [];
   
-  /* for (let index = 0; index < 1000; index++) {
-    let random = setNewRandom[index] += setNewRandom.push(setRandom())
-    random = [...new Set(setNewRandom)]
+  /*  for (let index = 0; index < 1000; index++) {
+    setNewRandom[index].push(setRandom())
+    setNewRandom[index] = [...new Set(setNewRandom)]
 
-    mandag.textContent = " " + random[0].ret
-    tirsdag.textContent = " " + random[1].ret
-    onsdag.textContent = " " + random[2].ret
-    torsdag.textContent = " " + random[3].ret
-    fredag.textContent = " " + random[4].ret
-    lørdag.textContent = " " + random[5].ret
-    søndag.textContent = " " + random[6].ret
+    mandag.textContent = " " + setNewRandom[0].ret
+    tirsdag.textContent = " " + setNewRandom[1].ret
+    onsdag.textContent = " " + setNewRandom[2].ret
+    torsdag.textContent = " " + setNewRandom[3].ret
+    fredag.textContent = " " + setNewRandom[4].ret
+    lørdag.textContent = " " + setNewRandom[5].ret
+    søndag.textContent = " " + setNewRandom[6].ret
 
   }  */ 
+
+// Push the shuffled data from setRandom() to an empty array  
   setNewRandom.push(setRandom())
   setNewRandom.push(setRandom())
   setNewRandom.push(setRandom())
@@ -103,8 +106,11 @@ function getRandom(){
   setNewRandom.push(setRandom())
   setNewRandom.push(setRandom())
   setNewRandom.push(setRandom())   
-  setNewRandom = [...new Set(setNewRandom)]
+
+  // filter out any duplicates from setNewRandom
+  setNewRandom = [...new Set(setNewRandom)]  
   
+  // display the content on the site
   mandag.textContent = " " + setNewRandom[0].ret
   tirsdag.textContent = " " + setNewRandom[1].ret
   onsdag.textContent = " " + setNewRandom[2].ret
@@ -124,10 +130,6 @@ function getRandom(){
     
 }
 
-
-function generateMenu(){
-  getRandom()
-}
 
 ///////////////////////////// Modal open/close logic ///////////////////////////////////////////////////
 const openModalButtons = document.querySelectorAll('[data-modal-target]');
@@ -159,6 +161,7 @@ function openModal(modal) {
     if (modal == null) return;
     modal.classList.add('active');
     overlay.classList.add('active');
+
 }
 
 function closeModal(modal) {
@@ -169,11 +172,62 @@ function closeModal(modal) {
  
 /////////Create Ret //////////////
 
-const NyRet = [];
+const retText = document.querySelector('.title-text');
+const ingredienserOne = document.querySelector('.ingredienser-one');
+const ingredienserTwo = document.querySelector('.ingredienser-two');
+const ingredienserThree = document.querySelector('.ingredienser-three');
+const ingredienserFore = document.querySelector('.ingredienser-fore');
+const submit = document.querySelector('.submit-button');
 
-NyRet.push(mad.ret)
+submit.addEventListener('click', nyret);
 
 
+function nyret() {
+
+// tilføjer nye ingredienser til det nye ret object: nyRet
+
+  let nyIngredienser = []
+  nyIngredienser.push(ingredienserOne.value)
+  nyIngredienser.push(ingredienserTwo.value)
+  nyIngredienser.push(ingredienserThree.value)
+  nyIngredienser.push(ingredienserFore.value)
+
+// Filtrere tomme ingredienser elementer fra  
+  const filteredIngredienser = nyIngredienser.filter(function (el){
+     return el !== "";
+    })
+
+  
+
+    
 
 
+// indholdet af nyRet object    
+ let nyRet = {
+  ret: retText.value,
+  ingredienser: filteredIngredienser
+ }
+
+
+ // pusher nyRet objectet til mad[]
+ mad.push(nyRet);
+ retText.value = "";
+ ingredienserOne.value = "";
+ ingredienserTwo.value = "";
+ ingredienserThree.value = "";
+ ingredienserFore.value = "";
+
+ 
+  console.log(mad);
+ignoreEmpty()
+  
+}
+
+// Ignore if there is an empty string in the retText input field when submitting modal
+function ignoreEmpty() {
+  if (retText.value === ""){
+    mad.pop();
+  
+  }
+}
 
