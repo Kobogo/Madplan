@@ -36,6 +36,7 @@ h1, h2{
   width: 100vw;
   padding: 10px;
   font-size: 1.5rem;
+  height: 3.5rem;
   border-radius: 15px;
   border-bottom: 4px solid var(--green-color);
 }
@@ -56,13 +57,21 @@ p {
 button {
   margin: 15px;
   justify-content: space-around;
- border-radius: 4px;
+  border: none;
+  border-radius: 4px;
   background: var(--green-color);
   font-weight: bold;
   font-size: 1rem;
   color: black;
   height: 4rem;
   width: 6rem;
+  cursor: pointer;
+}
+
+button:hover{
+  background: var(--dark-text-color);
+  color: var(--green-color);
+  transition: ease .5s;
 }
 
 
@@ -123,8 +132,6 @@ button {
   font-size: 1.25rem;
   font-weight: bold;
   padding-bottom: 10px;
-}
-.modal-body .ingredienser-textarea {
   width: 100%;
   border-radius: 10px;
 }
@@ -134,13 +141,28 @@ button {
 }
 
 .title-text{
-  margin:  auto;
-  height: 1rem;
+  font-size: larger;
+  padding: 5px 10px;
+  margin-left:  10px;
   border-radius: 5px;
+  font-weight: bold;
+  border: none;
+}
+
+.ingradienser-input{
+  width: 100%;
+  margin-top: 15px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: larger;
+  font-weight: bold;
+  justify-content: center;
 }
 
 .close-button{
   color: var(--light-text-color);
+  margin: 0px;
 }
 
 .modal-body .create-button {

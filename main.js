@@ -135,6 +135,7 @@ function getRandom(){
 const openModalButtons = document.querySelectorAll('[data-modal-target]');
 const closeModalButtons = document.querySelectorAll('[data-close-button]');
 const overlay = document.querySelector('.overlay');
+const resetModal = document.querySelector('.modal');
 
 openModalButtons.forEach(button => {
     button.addEventListener('click',() => {
@@ -161,7 +162,7 @@ function openModal(modal) {
     if (modal == null) return;
     modal.classList.add('active');
     overlay.classList.add('active');
-
+    retText.focus();
 }
 
 function closeModal(modal) {
@@ -169,6 +170,8 @@ function closeModal(modal) {
     modal.classList.remove('active');
     overlay.classList.remove('active');
 }
+
+
  
 /////////Create Ret //////////////
 
@@ -181,25 +184,19 @@ const submit = document.querySelector('.submit-button');
 
 submit.addEventListener('click', nyret);
 
-
 function nyret() {
 
-// tilføjer nye ingredienser til det nye ret object: nyRet
-
+// adds new ingredienser to the new ret object: nyRet
   let nyIngredienser = []
   nyIngredienser.push(ingredienserOne.value)
   nyIngredienser.push(ingredienserTwo.value)
   nyIngredienser.push(ingredienserThree.value)
   nyIngredienser.push(ingredienserFore.value)
 
-// Filtrere tomme ingredienser elementer fra  
+// Filter empty ingredienser elementer  
   const filteredIngredienser = nyIngredienser.filter(function (el){
      return el !== "";
     })
-
-  
-
-    
 
 
 // indholdet af nyRet object    
@@ -208,27 +205,26 @@ function nyret() {
   ingredienser: filteredIngredienser
  }
 
-
- // pusher nyRet objectet til mad[]
- mad.push(nyRet);
- retText.value = "";
- ingredienserOne.value = "";
- ingredienserTwo.value = "";
- ingredienserThree.value = "";
- ingredienserFore.value = "";
-
  
+ // Ignore if there is an empty string in the retText input field when submitting modal
+ function ignoreEmpty() {
+  if (retText.value === ""){
+    mad.push(nyRet);
+    mad.pop();
+  }else{
+    mad.push(nyRet);
+    retText.value = "";
+    ingredienserOne.value = "";
+    ingredienserTwo.value = "";
+    ingredienserThree.value = "";
+    ingredienserFore.value = "";    
+  }
+}
   console.log(mad);
 ignoreEmpty()
   
 }
 
-// Ignore if there is an empty string in the retText input field when submitting modal
-function ignoreEmpty() {
-  if (retText.value === ""){
-    mad.pop();
-  }else{
-    mad.push(nyRet);
-  }
-}
+
+ 
 
