@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Madplan</title>
+</head>
+<body>
+
+    <!-- Dette er den nyeste version -->
+        
+    <div class="container">
+        <div class="menu">
+            <header>
+                <h1>Madplan</h1>
+            </header>
+            
+            <h2>Menu</h2>
+            <div>
+                <p>Mandag:</p>
+                <div class="mandag dage"></div>
+            </div>
+            <div>
+                <p>Tirsdag:</p>
+                <div class="tirsdag dage"></div>
+            </div>
+            <div>
+                <p>Onsdag:</p>
+                <div class="onsdag dage"></div>
+            </div>
+            <div>
+                <p>Torsdag:</p>
+                <div class="torsdag dage"></div>
+            </div>
+            <div>
+                <p>Fredag:</p>
+                <div class="fredag dage"></div>
+            </div>
+            <div>
+                <p>Lørdag:</p>
+                <div class="lørdag dage"></div>
+            </div>
+            <div>
+                <p>Søndag:</p>
+                <div class="søndag dage"></div>
+            </div>
+
+            <div class="btn">
+                <button class="se-retter">Se retter</button>
+                <button data-modal-target="#modal" >Ny ret</button>
+            </div>
+        </div>
+       
+            <!--MODAL-->
+            <div class="modal" id="modal">
+              <div class="modal-header">
+                <div class="title">Ret</div>
+                <input type="text" name="Title" class="title-text" />
+                <button data-close-button class="close-button">&times;</button>
+              </div>
+              <div class="modal-body">
+                <div class="ingredienser">Ingredienser</div>
+                <input type="text" name="Title" class="ingredienser-one" />
+                <input type="text" name="Title" class="ingredienser-two" />
+                <input type="text" name="Title" class="ingredienser-three" />
+                <input type="text" name="Title" class="ingredienser-fore" />
+                <button class="submit-button" type="submit">Submit</button>
+              </div>
+            </div>
+            <div class="overlay"></div>
+            <!--div class="mad">
+            <h2>Mad</h2>
+            </div> -->
+    
+      
+    </div>
+
+
+
+    <script src="main.js"></script>
+</body>
+</html>
