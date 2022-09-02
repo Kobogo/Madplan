@@ -12,8 +12,9 @@
 }
 
 body {
-  min-height: 100vh;
+  height: 100vh;
   text-align: center;
+  height: -webkit-fill-available;
 }
 
 h1, h2{
@@ -36,7 +37,7 @@ h1, h2{
   width: 100vw;
   padding: 10px;
   font-size: 1.5rem;
-  height: 3.5rem;
+  height: 2.5rem;
   border-radius: 15px;
   border-bottom: 4px solid var(--green-color);
 }
@@ -78,7 +79,7 @@ button:hover{
 /* ======================== The pop up menu =========================================*/
 .modal {
   position: fixed;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
   transition: 200ms ease-in-out;
@@ -113,6 +114,11 @@ button:hover{
 
 .modal-header .title-text {
   width: 80%;
+  font-size: larger;
+ /*  padding: 5px 10px;
+  margin-left:  10px; */
+  border-radius: 5px;
+  font-weight: bold;
   border: none;
 }
 
@@ -140,14 +146,6 @@ button:hover{
   padding: 10px;
 }
 
-.title-text{
-  font-size: larger;
-  padding: 5px 10px;
-  margin-left:  10px;
-  border-radius: 5px;
-  font-weight: bold;
-  border: none;
-}
 
 .ingradienser-input{
   width: 100%;
@@ -200,3 +198,4 @@ button:hover{
   opacity: 1;
   pointer-events: all;
 }
+
